@@ -5,7 +5,7 @@ metadata:
     app: demo
   name: demo
 spec: 
-  replicas: 20 
+  replicas: 5
   selector: 
     matchLabels: 
       app: demo
@@ -16,7 +16,7 @@ spec:
   template: 
     metadata: 
       annotations: 
-        appVersion: v1.3
+        appVersion: v1.4
       labels: 
         app: demo
     spec: 

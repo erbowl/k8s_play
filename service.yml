@@ -7,7 +7,7 @@ metadata:
 spec:
   ports:
   - name: web
-    port: 1323
+    port: 80
     protocol: TCP
     targetPort: 1323
   selector:

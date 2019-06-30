@@ -1,0 +1,248 @@
+    1  apt-get update
+    2  apt-get install -y docker.io
+    3  ps -ax | grep aot
+    4  ps -ax | grep apt
+    5  kill 10827
+    6  kill 10807
+    7  kill 10820
+    8  apt-get install -y docker.
+    9  apt-get install -y docker.io
+   10  ps -ax | grep apt
+   11* kill
+   12  ps -ax | grep apt
+   13  apt-get install -y docker.io
+   14  ps -ax | grep apt
+   15  kill 11482
+   16  ps -ax | grep apt
+   17  apt-get install -y docker.io
+   18  apt-get update && apt-get install -y apt-transport-https curl
+   19  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+   20  cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
+
+deb http://apt.kubernetes.io/ kubernetes-xenial main
+
+EOF
+
+   21  apt-get update
+   22  apt-get install -y kubelet kubeadm kubectl
+   23  curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
+   24  curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x kubectl
+   25  export MINIKUBE_WANTUPDATENOTIFICATION=false
+   26  export MINIKUBE_WANTREPORTERRORPROMPT=false
+   27  export MINIKUBE_HOME=$HOME
+   28  export CHANGE_MINIKUBE_NONE_USER=true
+   29  mkdir -p $HOME/.kube
+   30  touch $HOME/.kube/config
+   31  export KUBECONFIG=$HOME/.kube/config
+   32  sudo -E ./minikube start --vm-driver=none
+   33  kubectl get pod
+   34  kubectl get pod -n all
+   35  kubectl get pod -n kube-system
+   36  minikube stop
+   37  ls
+   38  cd minikube
+   39  minikube
+   40  sh minikube
+   41  sudo -E ./minikube start --vm-driver=none -h
+   42  sudo -E ./minikube start --vm-driver=none -h | memory
+   43  sudo -E ./minikube start --vm-driver=none -h | greo memory
+   44* sudo -E ./minikube start --vm-driver=none -h | g
+   45  sudo -E ./minikube start --vm-driver=none -h | greo cpu
+   46  sudo -E ./minikube start --vm-driver=none -h | grep cpu
+   47  sudo -E ./minikube start --vm-driver=none --memory 3072 --cpu 3
+   48  sudo -E ./minikube start --vm-driver=none --memory 3072 --cpus 3
+   49  sudo snap install helm --classic
+   50  helm init --history-max 200
+   51  history > history.txt
+   52  ls
+   53  cat history.txt 
+   54  curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.2.2 sh -
+   55  cd istio-1.2.2
+   56  export PATH=$PWD/bin:$PATH
+   57  kubectl get svc -n istio-system
+   58  for i in install/kubernetes/helm/istio-init/files/crd*yaml; do kubectl apply -f $i; done
+   59  kubectl get svc -n istio-system
+   60  kubectl get pods -n istio-system
+   61  kubectl label namespace demo istio-injection=enabled
+   62  git
+   63  git clone https://github.com/erbowl/k8s_play.git
+   64  ls
+   65  cd k8s_play/
+   66  ls
+   67  docker 
+   68  docker build -t go_server .
+   69  kubectl create namespace demo
+   70  kubectl config set-context $(kubectl config current-context) --namespace=demo
+   71  kubectl config view | grep namespace
+   72  kubectl label namespace demo istio-injection=enabled
+   73  kubectl apply -f deployment2.yml 
+   74  kubectl get pod
+   75  kubectl apply -f deployment2.yml 
+   76  kubectl get pod
+   77  uptime
+   78  kubectl get pod
+   79  minikube dashboard
+   80  ./minikube dashboard
+   81  cd ../
+   82  ./minikube dashboard
+   83  ls
+   84  cd ../
+   85  ls
+   86  cd istio-1.2.2/
+   87  mv k8s_play/ ~/k8s_play
+   88  ls
+   89  cd ../
+   90  ls
+   91  ./minikube dashboard
+   92  kubectl get pod
+   93  ls
+   94  vi k8s_play/deployment2.yml 
+   95  kubectl apply -f deployment2.yml 
+   96  kubectl apply -f k8s_play/deployment2.yml 
+   97  kubectl get pod
+   98  kubectl apply -f k8s_play/deployment2.yml 
+   99  kubectl get pod
+  100  vi k8s_play/deployment2.yml 
+  101  kubectl apply -f k8s_play/deployment2.yml 
+  102  kubectl get pod
+  103  ls
+  104  ls k8s_play/
+  105  cat k8s_play/service.yml 
+  106  kubectl get service
+  107  kubectl apply -f k8s_play/service.yml 
+  108  kubectl get service
+  109  kubectl get pod
+  110  kubectl portfowawrd
+  111  kubectl port-forward
+  112  kubectl port-forward demo-c69d7448d-2r5m9 80:1323
+  113  mkdir kiali
+  114  KIALI_USERNAME=$(echo testuser | base64)
+  115  NAMESPACE=istio-system
+  116  kubectl create namespace $NAMESPACE
+  117  cat <<EOF > ~/kiali/secret
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kiali
+  namespace: $NAMESPACE
+  labels:
+    app: kiali
+type: Opaque
+data:
+  username: $KIALI_USERNAME
+  passphrase: $KIALI_PASSPHRASE
+EOF
+
+  118  kubectl apply -f ~/kiali/secret
+  119  KIALI_PASSPHRASE=$(echo testuser | base64)
+  120  kubectl apply -f ~/kiali/secret
+  121  KIALI_PASSPHRASE
+  122  $KIALI_PASSPHRASE
+  123  cat kiali/secret 
+  124  KIALI_PASSPHRASE=$(echo testuser | base64)
+  125  cat <<EOF > ~/kiali/secret
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kiali
+  namespace: $NAMESPACE
+  labels:
+    app: kiali
+type: Opaque
+data:
+  username: $KIALI_USERNAME
+  passphrase: $KIALI_PASSPHRASE
+EOF
+
+  126  kubectl apply -f ~/kiali/secret
+  127  cat <<EOF > ~/kiali/secret
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kiali
+  namespace: $NAMESPACE
+  labels:
+    app: kiali
+type: Opaque
+data:
+  username: $KIALI_USERNAME
+  passphrase: $KIALI_PASSPHRASE
+EOF
+
+  128  helm template /usr/local/src/istio-1.0.5/install/kubernetes/helm/istio     --set kiali.enabled=true     --set "kiali.dashboard.jaegerURL=http://jaeger-query:16686"     --set "kiali.dashboard.grafanaURL=http://grafana:3000"     --set gateways.istio-ingressgateway.type=NodePort     --set gateways.istio-egressgateway.type=NodePort     --name istio --namespace istio-system > ~/kiali/istio_kiali.yaml
+  129  helm template istio-1.2.2/install/kubernetes/helm/istio     --set kiali.enabled=true     --set "kiali.dashboard.jaegerURL=http://jaeger-query:16686"     --set "kiali.dashboard.grafanaURL=http://grafana:3000"     --set gateways.istio-ingressgateway.type=NodePort     --set gateways.istio-egressgateway.type=NodePort     --name istio --namespace istio-system > ~/kiali/istio_kiali.yaml
+  130  kubectl apply -f ~/kiali/istio_kiali.yaml
+  131  cat <<EOF > ~/kiali/kiali-service
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: kiali
+  name: kiali
+  namespace: istio-system
+spec:
+  ports:
+  - name: http-kiali
+    port: 20001
+    protocol: TCP
+    targetPort: 20001
+    nodePort: 32001
+  selector:
+    app: kiali
+  sessionAffinity: None
+  type: NodePort
+EOF
+
+  132  kubectl apply -f ~/kiali/kiali-service
+  133  kubectl get pod
+  134  kubectl get service
+  135  vi k8s_play/gateway.yml
+  136  kubectl apply -f k8s_play/gateway.yml 
+  137  vi k8s_play/gateway.yml
+  138  kubectl apply -f k8s_play/gateway.yml 
+  139  vi k8s_play/gateway.yml
+  140  kubectl apply -f k8s_play/gateway.yml 
+  141  vi k8s_play/gateway.yml
+  142  kubectl apply -f k8s_play/gateway.yml 
+  143  vi k8s_play/gateway.yml
+  144  kubectl apply -f k8s_play/gateway.yml 
+  145  vi k8s_play/gateway.yml
+  146  kubectl apply -f k8s_play/gateway.yml 
+  147  vi k8s_play/gateway.yml
+  148  kubectl apply -f k8s_play/gateway.yml 
+  149  vi k8s_play/gateway.yml
+  150  kubectl apply -f k8s_play/gateway.yml 
+  151  vi k8s_play/gateway.yml
+  152  kubectl apply -f k8s_play/gateway.yml 
+  153  kubectl get pod
+  154  kubectl get serivce
+  155  kubectl get gateway
+  156  kubectl get gateway -o wide
+  157  export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')
+  158  $INGRESS_PORT
+  159  export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}') export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].nodePort}')
+  160  $SECURE_INGRESS_PORT
+  161  kubectl get gateway --all-namespaces
+  162  kubectl get svc -n istio-system
+  163  $INGRESS_PORT
+  164  ls
+  165  cat k8s_play/server.go 
+  166  cat k8s_play/gateway.yml 
+  167  cat k8s_play/service.yml 
+  168  vi k8s_play/service.yml 
+  169  kubectl apply -f k8s_play/service.yml 
+  170  ls
+  171  kubectl get gateway --all-namespaces
+  172  kubectl get pod
+  173  ls
+  174  cp k8s_play/deployment2.yml deployment3.yml
+  175  mv deployment3.yml k8s_play/deployment3.yml
+  176  vi k8s_play/deployment3.yml 
+  177  kubectl apply -f k8s_play/deployment3.yml 
+  178  kubectl get pod
+  179  ls
+  180  cd k8s_play/
+  181  ls
+  182  git push origin master
+  183  git add .
+  184  history > history.txt
